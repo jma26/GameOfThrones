@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#wrapper {
+    text-align: center;
+    width: 1500px;
+}
+
+.cards {
+    display: inline-block;
+    width: 30%;
+    border: 1px solid black;
+    height: 350px;
+}
+
+.houseOfStark {
+    background-image: url("stark.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.houseOfTargaryen {
+    background-image: url("targaryen.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.houseOfLannister {
+    background-image: url("lannister.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.houseOfGreyjoy {
+    background-image: url("greyjoy.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.houseOfFrey {
+    background-image: url("Frey.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.houseOfArryn {
+    background-image: url("arryn.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#card-content {
+    width: 50%;
+    border: 1px solid black;
+    margin: 0 auto;
+}

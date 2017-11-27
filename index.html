@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Game of Thrones API </title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+            <h1> Game of Thrones API </h1>
+            <div class="cards houseOfStark" id="362"> </div>
+            <div class="cards houseOfTargaryen" id="378"> </div>
+            <div class="cards houseOfLannister" id="229"> </div>
+            <div class="cards houseOfArryn" id=""> </div>
+            <div class="cards houseOfGreyjoy" id=""> </div>
+            <div class="cards houseOfFrey" id=""> </div>
+            <div id="card-content"> </div>
+        </div>
+
+
+
+
+        <!-- jQuery GoogleAPI --> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- jQuery Code -->
+        <script> 
+            $(document).ready(function() {
+                // Hover animation //
+                $('.cards').hover(function() {
+                    $(this).animate({opacity: 0.5}, 500);
+                }, function() {
+                    $(this).animate({opacity: 1}, 500);
+                });
+
+                 $('.cards').click(function() {
+                    var value = $(this).attr('id');
+
+                    $.getJSON(`https://www.anapioficeandfire.com/api/houses/${value}`, function(data){
+
+                        var html_str = "";
+                        html_str += "<h1>" + data.name + "</h1>" 
+                        html_str += "<h2> Region:  " + data.region + "</h2>";
+                        html_str += "<h3> Famous Words: " + data.words + "</h3>";
+
+                        var string = data.titles[0];
+
+                        for (var i = 0; i < data.titles.length; i++) {
+                            string += ", " + data.titles[i];
+                        }
+
+                        html_str += `<h3> Titles: ${string} </h3>`;
+                        $('#card-content').html(html_str);
+
+                    });
+                    return false;
+                }); 
+
+            });
+
+        </script>
+    </body>
+</html>
